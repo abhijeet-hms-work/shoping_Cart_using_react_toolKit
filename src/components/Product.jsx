@@ -1,14 +1,11 @@
 import React from "react";
 import { Products } from "../data";
 
-import { useSelector, useDispatch } from "react-redux";
-import { addToCart, selectCartItems } from "../redux/cartSlice/index";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/cartSlice/index";
 
 const Product = () => {
   const dispatch = useDispatch();
-
-  const cartItem = useSelector((state) => state.cart.items);
-  console.log(cartItem);
 
   const handleAddToCart = (items) => {
     dispatch(addToCart(items));
