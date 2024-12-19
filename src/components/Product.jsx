@@ -3,15 +3,28 @@ import { Products } from "../data";
 
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cartSlice/index";
+import { ToastContainer, toast, Bounce } from "react-toastify";
 
 const Product = () => {
   const dispatch = useDispatch();
 
   const handleAddToCart = (items) => {
     dispatch(addToCart(items));
+    toast.success("Item Added To Cart", {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
   };
   return (
     <div>
+      <ToastContainer />
       <div className="container">
         <div className="row">
           {Products.map((items) => (
